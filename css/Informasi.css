@@ -1,0 +1,147 @@
+/* informasi.css */
+
+/* Reset dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body dan warna latar */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #b71c1c;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+header {
+  background-color: #7f0000;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+/* Navigasi */
+nav {
+  background-color: #990000;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+nav a {
+  color: #ffcdd2;
+  margin: 0 1rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+nav a:hover,
+nav a:focus {
+  color: #fff;
+  outline: none;
+  text-decoration: underline;
+}
+
+/* Navigasi aktif (jika nanti toggle dibuat responsive) */
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+/* Main content */
+main {
+  max-width: 1100px;
+  margin: 2rem auto 3rem;
+  padding: 0 1rem;
+  flex-grow: 1;
+}
+
+/* Grid 3 kolom untuk info */
+.info-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* Kotak info */
+.info-card {
+  background-color: #d32f2f;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  flex: 1 1 calc(33.333% - 1rem);
+  min-width: 280px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.info-card:hover,
+.info-card:focus-within {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  outline: none;
+}
+
+.info-card img {
+  width: 100%;
+  max-width: 280px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.info-card p {
+  font-size: 1rem;
+  line-height: 1.4;
+  text-align: center;
+  margin: 0;
+}
+
+/* Footer */
+footer {
+  background-color: #7f0000;
+  color: #ffcdd2;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .info-card {
+    flex: 1 1 45%;
+  }
+}
+
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav a {
+    margin: 0.5rem 0;
+  }
+
+  .info-card {
+    flex: 1 1 100%;
+  }
+}

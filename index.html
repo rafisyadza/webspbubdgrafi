@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPBU KOTA BANDUNG</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo-group">
+  <img src="Bahan/Gambar/LogoBandung.png" alt="Logo Kota Bandung" class="logo-icon">
+  <div class="logo-text">Kota Bandung</div>
+
+        
+        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+        <ul id="nav-links">
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="tentang.html">Tentang</a></li>
+            <li><a href="informasi.html">Informasi</a></li> <!-- Mengubah "Layanan" menjadi "Informasi" -->
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="beranda">
+        <div class="hero" style="background-image: url('');">
+            <div>
+                <h1>Webgis Mengenai Sebaran SPBU Kota Bandung</h1>
+                <p>Kami menghadirkan solusi digital untuk kebutuhan Anda</p>
+                <button onclick="scrollToMap()">Pelajari Lebih Lanjut</button> <!-- Memanggil fungsi scrollToMap -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Konten lainnya -->
+    <section id="informasi"> <!-- Pastikan ID ini sesuai dengan href di menu -->
+        <h1>Sebaran SPBU</h1>
+        <p>Berikut adalah Sebaran SPBU di Kota Bandung:</p>
+        <div id="map" style="height: 500px; margin-top: 20px;"></div>
+    </section>
+
+    <!-- Footer -->
+<footer>
+    <p>&copy; 2025 MyWebsite. All rights reserved.</p>
+    <p class="socials">
+        <a href="https://www.instagram.com/rafisyadzasf?igsh=eHVpdWUyYmNxemE0&utm_source=qr" target="_blank">Instagram</a> |
+    </p>
+</footer>
+
+
+    <script src="js/index.js"></script>
+    <script src="js/informasi.js"></script> <!-- Menambahkan informasi.js -->
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script>
+        // Fungsi untuk menggulir ke bagian peta
+        function scrollToMap() {
+            const mapSection = document.getElementById('informasi');
+            mapSection.scrollIntoView({ behavior: 'smooth' }); // Menggulung dengan efek halus
+        }
+
+        // Inisialisasi peta dengan pusat di Bandung
+       var map = L.map('map').setView([-6.9147, 107.6098], 12); // Titik tengah Kota Bandung
+
+// Tambahkan peta dasar dari OpenStreetMap
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);
+
+// Data GeoJSON dari file Anda (potong atau ringkas untuk demo)
+fetch('/Bahan/Kecamatan_Bandung.json')
+    .then(response => response.json())
+    .then(data => {
+      L.geoJSON(data, {
+        style: {
+          color: 'black',
+          weight: 2,
+          opacity: 0.6,
+          fillOpacity: 0.1
+        },
+        onEachFeature: function (feature, layer) {
+          if (feature.properties && feature.properties.NAMOBJ) {
+            layer.bindPopup("Kecamatan: " + feature.properties.NAMOBJ);
+          }
+        }
+      }).addTo(map);
+    })
+    .catch(err => console.error("Gagal memuat GeoJSON:", err));
+
+    fetch('/Bahan/SPBU_Point.json')
+    .then(response => response.json())
+    .then(data => {
+      L.geoJSON(data, {
+        style: {
+          color: 'red',
+          weight: 1,
+          opacity: 0.3,
+          fillOpacity: 0.1
+        },
+        onEachFeature: function (feature, layer) {
+          if (feature.properties && feature.properties.NAMOBJ) {
+            layer.bindPopup("Kecamatan: " + feature.properties.NAMOBJ);
+          }
+        }
+      }).addTo(map);
+    })
+    .catch(err => console.error("Gagal memuat GeoJSON:", err));
+
+    </script>
+</body>
+</html>

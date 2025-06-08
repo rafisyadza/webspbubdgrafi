@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Informasi - SPBU Kota Bandung</title>
+    <link rel="stylesheet" href="css/informasi.css" />
+    <style>
+        /* Palet warna merah dominan dan styling modern */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #b71c1c;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #7f0000;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        nav {
+            background-color: #990000;
+            padding: 0.75rem 1rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+        }
+
+        nav a {
+            color: #ffcdd2;
+            margin: 0 1rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover,
+        nav a:focus {
+            color: #fff;
+            outline: none;
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 2rem auto 3rem;
+            padding: 0 1rem;
+        }
+
+        .info-grid {
+            display: flex;
+            justify-content: space-between;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .info-card {
+            background-color: #d32f2f;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            flex: 1 1 calc(33.333% - 1rem);
+            min-width: 280px;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .info-card:hover,
+        .info-card:focus-within {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+            outline: none;
+        }
+
+        .info-card img {
+            width: 100%;
+            max-width: 280px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+        }
+
+        .info-card p {
+            font-size: 1rem;
+            line-height: 1.4;
+            text-align: center;
+            margin: 0;
+        }
+
+        footer {
+            background-color: #7f0000;
+            color: #ffcdd2;
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.9rem;
+            box-shadow: 0 -2px 8px rgba(0,0,0,0.4);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Informasi Mengenai SPBU Kota Bandung</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Beranda</a>
+        <a href="tentang.html">Tentang</a>
+        <a href="informasi.html" aria-current="page">Informasi</a>
+    </nav>
+
+    <main>
+        <div class="info-grid" role="list">
+            <article class="info-card" role="listitem" tabindex="0" aria-label="Informasi SPBU 1">
+                <img src="https://i.pinimg.com/736x/84/45/46/844546cd733a113483fcd58c40123e13.jpg" />
+                <p>SPBU di lokasi strategis dekat pusat kota Bandung, melayani dengan cepat dan ramah.</p>
+            </article>
+
+            <article class="info-card" role="listitem" tabindex="0" aria-label="Informasi SPBU 2">
+                <img src="https://i.pinimg.com/736x/83/c9/19/83c91964b82f9ddc9aee76cbbdfd562f.jpg" />
+                <p>Fasilitas lengkap, termasuk minimarket dan rest area untuk kenyamanan pelanggan.</p>
+            </article>
+
+            <article class="info-card" role="listitem" tabindex="0" aria-label="Informasi SPBU 3">
+                <img src="https://i.pinimg.com/736x/14/b1/36/14b136dc27b72b74dfb4bf517d4776ed.jpg" />
+                <p>Harga bahan bakar bersaing serta pelayanan 24 jam penuh di beberapa lokasi utama.</p>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2025 SPBU Kota Bandung. All rights reserved.
+    </footer>
+</body>
+</html>
